@@ -25,14 +25,11 @@ public Map<String, String> getErreurs() {
 
 public Etudiant inscrireEtudiant( HttpServletRequest request ) {
 
-    String nom = getValeurChamp( request, CHAMP_NOM );
+    String nom = (String) request.getAttribute(CHAMP_NOM );
     
-    String prenom = getValeurChamp( request, CHAMP_PRENOM );
+    String prenom = (String) request.getAttribute(CHAMP_PRENOM );
     
-    String gtd = getValeurChamp( request, CHAMP_GTD );
-
-    System.out.println(nom);
-    System.out.println(prenom);
+    String gtd = (String) request.getAttribute(CHAMP_GTD );
 
     Etudiant etu = new Etudiant();
 
@@ -129,30 +126,6 @@ private void validationGtd( String gtd ) throws Exception {
 private void setErreur( String champ, String message ) {
 
     erreurs.put( champ, message );
-
-}
-
-/*
-
- * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
-
- * sinon.
-
- */
-
-private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
-
-    String valeur = request.getParameter( nomChamp );
-
-    if ( valeur == null || valeur.trim().length() == 0 ) {
-
-        return null;
-
-    } else {
-
-        return valeur.trim();
-
-    }
 
 }
 }
