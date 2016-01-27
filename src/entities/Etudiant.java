@@ -23,7 +23,7 @@ public class Etudiant {
 	private String gtd;
 	
 	@ManyToOne(targetEntity=Projet.class)
-	Collection<Projet> projet;
+	Projet projet;
 	
 	@OneToOne(targetEntity=Utilisateur.class)
 	Utilisateur utilisateur;
@@ -40,10 +40,10 @@ public class Etudiant {
 	public void setId(Integer id) {
 		this.eid = id;
 	}
-	public Collection<Projet> getProjet() {
+	public Projet getProjet() {
 		return projet;
 	}
-	public void setProjet(Collection<Projet> projet) {
+	public void setProjet(Projet projet) {
 		this.projet = projet;
 	}
 	public String getNom() {

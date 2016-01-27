@@ -3,6 +3,7 @@ package forms;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 
 import ejb.UtilisateurImpl;
@@ -14,6 +15,8 @@ public final class ConnexionForm {
 	private static final String CHAMP_PASS   = "motdepasse";
 	private String              resultat;
 	private Map<String, String> erreurs      = new HashMap<String, String>();
+	
+	@EJB
 	private UtilisateurImpl utilisateurImpl;
 
 
@@ -42,7 +45,7 @@ public final class ConnexionForm {
 
 		String motDePasse = getValeurChamp( request, CHAMP_PASS );
 
-		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur = null;
 
 		/* Validation du champ email. */
 
@@ -57,7 +60,7 @@ public final class ConnexionForm {
 
 		}
 
-		utilisateur.setEmail( email );
+
 
 		/* Validation du champ mot de passe. */
 
@@ -70,14 +73,18 @@ public final class ConnexionForm {
 			setErreur( CHAMP_PASS, e.getMessage() );
 
 		}
-
+		/*
+		utilisateur.setEmail( email );
 		utilisateur.setMotDePasse( motDePasse );
 		utilisateur.setNom(utilisateurImpl.trouver(email).getNom());
 		utilisateur.setAdmin(utilisateurImpl.trouver(email).getAdmin());
+		*/
+		
 		/* Initialisation du rÃ©sultat global de la validation. */
 
 		if ( erreurs.isEmpty() ) {
 
+			utilisateur = utilisateurImpl.trouver(email);
 			resultat = "Succés de la connexion.";
 
 		} else {
@@ -85,7 +92,7 @@ public final class ConnexionForm {
 			resultat = "échec de la connexion.";
 
 		}
-
+		 // Renvoie le bon utilisateur si il existe, et null sinon (qui ne sera pas utilisé en amont)
 		return utilisateur;
 
 	}
