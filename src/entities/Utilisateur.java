@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Utilisateur {
@@ -21,6 +22,8 @@ public class Utilisateur {
 	private String email;
     @Column( name = "admin")
     private String admin;
+    @OneToOne(targetEntity = Etudiant.class)
+    Etudiant etudiant;
 
 	public String getAdmin() {
 		return admin;
@@ -52,6 +55,14 @@ public class Utilisateur {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
+
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
 	}
 	
 

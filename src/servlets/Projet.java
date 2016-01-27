@@ -59,39 +59,7 @@ private static final long serialVersionUID = 1L;
 		// Récupération du paramètre permettant d'indiquer d'où on vient
 		String op = request.getParameter("op");
 		
-		/*
-		//Redirection
-		if(op.equals("se")){		
-			String paramletudiant = request.getParameter("letudiant");
-			String letudiant_bis[] = new String[6];
-			
-			// Problème letudiant_bis envoyé marche mais vide du coup voir probleme avec le tableau
-			
-			//letudiant_bis = paramletudiant.split("\n");		
-			etudiantImpl.ajoutEtudiant("Bekrar","Sami");
-			request.setAttribute("paramletudiant", paramletudiant);
-			request.setAttribute("letudiant_bis", letudiant_bis);
-			request.getRequestDispatcher( "/setudiant.jsp" ).forward( request, response );	
-		}
-		
-		//Redirection
-		if(op.equals("Lister")){		
-			request.setAttribute("etudiants", etudiantImpl.listeEtudiants());
-			request.getRequestDispatcher( "/plateformeGroupe/Lister" ).forward( request, response );	
-		}
-		
-		if(op.equals("Nouveau Projet")){		
-			request.getRequestDispatcher( "/plateformeGroupe/Newprojet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Saisie Etudiant")){  
-			request.getRequestDispatcher( "/plateformeGroupe/SaisieEtudiant" ).forward( request, response ); 
-		}
-		
-		if(op.equals("Accueil")){
-			request.getRequestDispatcher( "/plateformeGroupe/Accueil").forward(request, response);
-		}
-		*/
+
 	}
 
 }

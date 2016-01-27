@@ -1,0 +1,6 @@
+Liste des types de persones connectées possible (champ Admin)
+
+Deco
+Oui 
+Non_Lier
+Non_PasLier
