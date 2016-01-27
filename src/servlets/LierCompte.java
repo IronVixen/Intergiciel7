@@ -85,7 +85,7 @@ private static final long serialVersionUID = 1L;
 		int idp = Integer.parseInt(sidp);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
-		//utilisateurImpl.lier(idp, u);
+		utilisateurImpl.lierUtilisateur((long) idp, u);
 		
 	}
 

@@ -29,6 +29,7 @@ public class UtilisateurImpl {
     		u.setEmail(utilisateur.getEmail());
     		u.setMotDePasse(utilisateur.getMotDePasse());
     		u.setNom(utilisateur.getNom());
+    		u.setLie("Non");
     		if (utilisateur.getNom().equals("Aussa"))
     		{
     			u.setAdmin("Oui");

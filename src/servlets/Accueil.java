@@ -23,6 +23,7 @@ public class Accueil extends HttpServlet {
 	
 	@EJB
 	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
 	 private EtudiantImpl   etudiantImpl;
     
 	/**
