@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 
 /**
@@ -21,9 +22,12 @@ public class GestProjet extends HttpServlet{
 	
 private static final long serialVersionUID = 1L;      
 	
-	@EJB
-	 private UtilisateurImpl   utilisateurImpl;
-	 private EtudiantImpl   etudiantImpl;
+@EJB
+private UtilisateurImpl   utilisateurImpl;
+@EJB
+private EtudiantImpl   etudiantImpl;
+@EJB
+private ProjetImpl   projetImpl;
     
 	/**
      * @see HttpServlet#HttpServlet()

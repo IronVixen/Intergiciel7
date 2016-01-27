@@ -25,8 +25,8 @@
 				} else {
 			%>
 			<form method="get" action="/plateformeGroupe/Connexion">
-				<input type="submit" value="Se deconnecter">
-				<input type = "hidden" name="CheckDeco" value="deconnexion">
+				<input type="submit" value="Se deconnecter"/>
+				<input type="hidden" name="op" value="deco"/>
 			</form>
 			<%
 				}
@@ -73,9 +73,14 @@
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
+	
+	<li><form method="get" action="/plateformeGroupe/Listergrp">
+			<input type="submit" value="Lister Groupe">
+		</form></li>
+	<br />
 
 	<% 
-	if( (s==null)?false:s.equals("Oui") ){%>
+	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>

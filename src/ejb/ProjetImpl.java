@@ -1,10 +1,13 @@
 package ejb;
 
+import java.util.Collection;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import entities.Etudiant;
 import entities.Projet;
 import entities.Utilisateur;
 
@@ -40,6 +43,10 @@ public class ProjetImpl {
 		projet = (Projet) requete.getSingleResult();
 		return projet;
 
+	}
+	
+	public Collection<Projet> listeProjets() {
+		return em.createQuery("from Projet", Projet.class).getResultList();
 	}
 
 }

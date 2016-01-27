@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 import entities.Etudiant;
 import entities.Utilisateur;
@@ -27,10 +28,12 @@ import forms.NewEtuForm;
 public class Listeretu  extends HttpServlet{
 private static final long serialVersionUID = 1L;      
 	
-	@EJB
-	 private UtilisateurImpl   utilisateurImpl;
-	@EJB
-	 private EtudiantImpl   etudiantImpl;
+@EJB
+private UtilisateurImpl   utilisateurImpl;
+@EJB
+private EtudiantImpl   etudiantImpl;
+@EJB
+private ProjetImpl   projetImpl;
     
 	/**
      * @see HttpServlet#HttpServlet()

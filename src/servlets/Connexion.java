@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 import entities.Utilisateur;
 import forms.ConnexionForm;
@@ -26,8 +28,12 @@ public class Connexion extends HttpServlet {
     public static final String VUE              = "/WEB-INF/Connexion.jsp";
     
     // Injection de notre EJB (Session Bean Stateless)
-    @EJB
-    private UtilisateurImpl   utilisateurImpl;
+	@EJB
+	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
+	 private EtudiantImpl   etudiantImpl;
+	@EJB
+	 private ProjetImpl   projetImpl;
     
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Affichage de la page de connexion */
@@ -48,7 +54,9 @@ public class Connexion extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        /* Préparation de l'objet formulaire */
+        
+    	
+    	/* Préparation de l'objet formulaire */
         ConnexionForm form = new ConnexionForm(utilisateurImpl);
 
         /* Traitement de la requête et récupération du bean en résultant */
@@ -57,7 +65,17 @@ public class Connexion extends HttpServlet {
         HttpSession session = request.getSession();
         
         
-        
+		String op = request.getParameter("op");
+		//Redirection{
+		System.out.println(op);
+		if(op!= null && op.equals("deco")){	
+				System.out.println("Tu as essay� de te d�co. Bien tent�.");
+				session.setAttribute("Admin","Deco");
+				session.setAttribute(ATT_SESSION_USER,null);
+				request.removeAttribute(ATT_USER);
+				request.getRequestDispatcher( "/Accueil" ).forward( request, response );	
+	        }
+		else {
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur à la session, sinon suppression du bean de la session.
@@ -79,6 +97,6 @@ public class Connexion extends HttpServlet {
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, utilisateur );
         
-
-        }
+		}
     }
+}

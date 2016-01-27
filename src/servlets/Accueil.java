@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 
 
@@ -25,6 +26,8 @@ public class Accueil extends HttpServlet {
 	 private UtilisateurImpl   utilisateurImpl;
 	@EJB
 	 private EtudiantImpl   etudiantImpl;
+	@EJB
+	 private ProjetImpl   projetImpl;
     
 	/**
      * @see HttpServlet#HttpServlet()

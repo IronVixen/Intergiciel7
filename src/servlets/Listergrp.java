@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 
 /**
@@ -25,8 +26,11 @@ private static final long serialVersionUID = 1L;
 	
 	@EJB
 	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
 	 private EtudiantImpl   etudiantImpl;
-    
+	@EJB
+	 private ProjetImpl   projetImpl;
+
 	/**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,6 +55,7 @@ private static final long serialVersionUID = 1L;
 				session.setAttribute("Admin", admin);
 			}
 		}
+		request.setAttribute("listproj", projetImpl.listeProjets());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Listergrp.jsp").forward( request, response );
 	}
 

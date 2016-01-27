@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 import entities.Utilisateur;
 import forms.InscriptionForm;
@@ -25,8 +27,12 @@ public class Inscription extends HttpServlet {
     public static final String VUE = "/WEB-INF/Inscription.jsp";
     
     // Injection de notre EJB (Session Bean Stateless)
-    @EJB
-    private UtilisateurImpl   utilisateurImpl;
+	@EJB
+	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
+	 private EtudiantImpl   etudiantImpl;
+	@EJB
+	 private ProjetImpl   projetImpl;
 		
     public Inscription() {
         super();

@@ -89,7 +89,7 @@
 	<br />
 	
 	</header>
-        <form method="post" action="Nouveau Groupe">
+        <form method="post" action="Newprojet">
             <fieldset>
                 <legend>Nouveau Groupe</legend>
 

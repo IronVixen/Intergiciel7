@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
 
 @WebServlet("/SaisieEtudiant")
@@ -20,7 +21,10 @@ public class SaisieEtudiant extends HttpServlet {
 	
 	@EJB
 	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
 	 private EtudiantImpl   etudiantImpl;
+	@EJB
+	 private ProjetImpl   projetImpl;
     
 	/**
      * @see HttpServlet#HttpServlet()
