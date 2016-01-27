@@ -22,9 +22,9 @@ public class Etudiant {
 	private String prenom;
 	private String gtd;
 	
-/*	@ManyToOne(targetEntity=Projet.class)
+	@ManyToOne(targetEntity=Projet.class)
 	Collection<Projet> projet;
-*/	
+	
 	@OneToOne(targetEntity=Utilisateur.class)
 	Utilisateur utilisateur;
 	
