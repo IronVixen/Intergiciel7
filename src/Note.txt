@@ -17,3 +17,6 @@ et
 Oui
 Non
 pour lié ou non sinon ca pue la mort
+
+modif en bdd : inscription liaison
+modif en request : deco reco
