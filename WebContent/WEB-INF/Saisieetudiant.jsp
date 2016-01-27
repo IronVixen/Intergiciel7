@@ -44,7 +44,7 @@
 
 
 	<%if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/Projet">
+	<li><form method="get" action="/plateformeGroupe/GestProjet">
 			<input type="submit" value="Projet">
 		</form></li>
 	<br />

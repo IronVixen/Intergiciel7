@@ -42,16 +42,6 @@
 			<input type="submit" value="Accueil">
 		</form></li>
 	<br />
-
-
-
-	<%if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/Projet">
-			<input type="submit" value="Projet">
-		</form></li>
-	<br />
-
-	<% } %> 
 	
 	<% 
 	if( (s==null)?false:s.equals("Oui") ){%>
