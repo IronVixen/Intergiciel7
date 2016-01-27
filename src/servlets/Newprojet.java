@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ejb.EtudiantImpl;
+import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
+import forms.NewProjForm;
 
 /**
  * Servlet implementation class Accueil
@@ -23,8 +25,11 @@ private static final long serialVersionUID = 1L;
 	
 	@EJB
 	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
 	 private EtudiantImpl   etudiantImpl;
-    
+	@EJB
+	 private ProjetImpl   projetImpl;
+	
 	/**
      * @see HttpServlet#HttpServlet()
      */
@@ -59,40 +64,17 @@ private static final long serialVersionUID = 1L;
 		// Récupération du paramètre permettant d'indiquer d'où on vient
 		String op = request.getParameter("op");
 		
-		/*
-		//Redirection
-		if(op.equals("se")){		
-			String paramletudiant = request.getParameter("letudiant");
-			String letudiant_bis[] = new String[6];
-			
-			// Problème letudiant_bis envoyé marche mais vide du coup voir probleme avec le tableau
-			
-			//letudiant_bis = paramletudiant.split("\n");		
-			etudiantImpl.ajoutEtudiant("Bekrar","Sami");
-			request.setAttribute("paramletudiant", paramletudiant);
-			request.setAttribute("letudiant_bis", letudiant_bis);
-			request.getRequestDispatcher( "/setudiant.jsp" ).forward( request, response );	
-		}
-		*/
-		/*
-		//Redirection
-		if(op.equals("Lister")){		
-			request.setAttribute("etudiants", etudiantImpl.listeEtudiants());
-			request.getRequestDispatcher( "/plateformeGroupe/Lister" ).forward( request, response );	
-		}
+        // Préparation de l'objet formulaire
+        NewProjForm form = new NewProjForm();
 		
-		if(op.equals("Projet")){		
-			request.getRequestDispatcher( "/plateformeGroupe/Projet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Saisie Etudiant")){  
-			request.getRequestDispatcher( "/plateformeGroupe/SaisieEtudiant" ).forward( request, response ); 
-		}
-		
-		if(op.equals("Accueil")){
-			request.getRequestDispatcher( "/plateformeGroupe/Accueil").forward(request, response);
-		}
-		*/
+        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
+        entities.Projet pro = form.inscrireProjet( request );
+        
+        if ( form.getErreurs().isEmpty() ) {
+        	projetImpl.creer(pro);
+        } else {
+        	System.out.println("Param�tre d'inscription incorrect");
+        }
 	}
 
 }
