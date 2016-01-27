@@ -23,7 +23,7 @@ import forms.NewEtuForm;
 /**
  * Servlet implementation class Listeretu
  */
-@WebServlet("/Listeretu")
+@WebServlet("/LierCompte")
 public class LierCompte  extends HttpServlet{
 private static final long serialVersionUID = 1L;      
 	
@@ -57,9 +57,23 @@ private static final long serialVersionUID = 1L;
 			}
 		}
 		request.setAttribute("session", session);
+		
+        // Préparation de l'objet formulaire
+        NewEtuForm form = new NewEtuForm();
+		request.setAttribute("nom", "Li Britannia");
+		request.setAttribute("prenom", "Derp");
+		request.setAttribute("gtd", "Z");
+		
+        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
+        Etudiant etu = form.inscrireEtudiant( request );
+        
+        if ( form.getErreurs().isEmpty() ) {
+        	etudiantImpl.creer(etu);
+        } else {
+        	System.out.println("Param�tre d'inscription incorrect");
+        }
 
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
-		System.out.println(etudiantImpl.listeEtudiants());
         this.getServletContext().getRequestDispatcher("/WEB-INF/LierCompte.jsp").forward( request, response );
 	}
 

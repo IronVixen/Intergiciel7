@@ -4,3 +4,16 @@ Deco
 Oui 
 Non_Lier
 Non_PasLier
+
+Non mais non tu peux pas lier le fait qu'un compte soit lié ou non à la session c'est dégueulasse, ca dépend juste de l'utilisateur
+On fait 2 trucs
+
+Deco
+Oui
+Non
+
+et 
+
+Oui
+Non
+pour lié ou non sinon ca pue la mort

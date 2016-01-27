@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Saisie Etudiant</title>
 </head>
-	 <%String s = ( (String) session.getAttribute("Admin"));%>
+
 <body>
 
 	<header>
@@ -14,7 +14,7 @@
 	<div id="topBar">
 		<div id="headerLinks"
 			style="position: absolute; top: 0; right: 10px; float: right;">
-
+	 <%String s = ( (String) session.getAttribute("Admin"));%>
 			<%if( (s==null)?true:s.equals("Deco") ){%>
 			<form method="get" action="/plateformeGroupe/Connexion">
 				<input type="submit" value="Se Connecter">
@@ -43,8 +43,7 @@
 		</form></li>
 	<br />
 
-
-
+<%s = ( (String) session.getAttribute("Admin"));%>
 	<%if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/Projet">
 			<input type="submit" value="Projet">
@@ -52,7 +51,7 @@
 	<br />
 
 	<% } %> 
-	
+
 	<% 
 	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
@@ -66,7 +65,6 @@
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
-
 	<% 
 	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
@@ -74,7 +72,6 @@
 		</form></li>
 	<br />
 	<% } %> 
-	
 	<% s = ( (String) request.getAttribute("Admin"));
 	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Gestiongroupe">
@@ -89,15 +86,13 @@
 	<br />
 	
 	</header>
-
-
-<% Boolean l = (Boolean) session.getAttribute("Lie");
-if( (s==null)?false:s.equals("Non") && (l==null)?true:l ){%>
+<%s = ( (String) session.getAttribute("Admin"));%>
+<%if( (s==null)?false:s.equals("Non") ){%>
 	<form method="get" action="Controller">
 	<%
 	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 	%>
-	  <input type='radio' name='idp' value='<%= Etu.getId()%>'/> <%= Etu.getNom()%><%= Etu.getPrenom()%>
+	  <input type='radio' name='idp' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
 	  <br/>
 	<% } %>
 	

@@ -61,8 +61,8 @@
 	<% } %>
 
 	<%s = ( (String) session.getAttribute("Admin"));
-	Boolean lie = (Boolean) session.getAttribute("Lie");
-	if( (s==null)?false:s.equals("Non") && (lie == null)?true:lie.booleanValue()){%>
+	String lie = (String) session.getAttribute("Lie");
+	if( (s==null)?false:s.equals("Non") && ((lie==null)?true:lie.equals("Non"))){%>
 	<li><form method="get" action="/plateformeGroupe/LierCompte">
 			<input type="submit" value="Lier le compte">
 		</form></li>

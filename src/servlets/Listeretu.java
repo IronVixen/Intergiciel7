@@ -73,7 +73,6 @@ private static final long serialVersionUID = 1L;
         }
         */
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
-		System.out.println(etudiantImpl.listeEtudiants());
         this.getServletContext().getRequestDispatcher("/WEB-INF/Listeretu.jsp").forward( request, response );
 	}
 
