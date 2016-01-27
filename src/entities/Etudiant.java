@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -24,6 +25,10 @@ public class Etudiant {
 /*	@ManyToOne(targetEntity=Projet.class)
 	Collection<Projet> projet;
 */	
+	@OneToOne(targetEntity=Utilisateur.class)
+	Utilisateur utilisateur;
+	
+	
 	public Integer getId() {
 		return eid;
 	}

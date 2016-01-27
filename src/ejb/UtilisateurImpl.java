@@ -37,7 +37,7 @@ public class UtilisateurImpl {
     		}
     		else
     		{
-    			u.setAdmin("Non");
+    			u.setAdmin("Non_PasLier");
     		}
             em.persist(u);
     }
