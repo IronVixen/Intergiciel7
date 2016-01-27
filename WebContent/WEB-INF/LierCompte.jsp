@@ -88,7 +88,7 @@
 	</header>
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%if( (s==null)?false:s.equals("Non") ){%>
-	<form method="get" action="Controller">
+	<form method="get" action="LierCompte">
 	<%
 	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 	%>
