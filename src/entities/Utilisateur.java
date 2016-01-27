@@ -22,7 +22,17 @@ public class Utilisateur {
 	private String email;
     @Column( name = "admin")
     private String admin;
-    @OneToOne(targetEntity = Etudiant.class)
+    @Column ( name = "lie")
+    private String lie;
+    public String getLie() {
+		return lie;
+	}
+
+	public void setLie(String lie) {
+		this.lie = lie;
+	}
+
+	@OneToOne(targetEntity = Etudiant.class)
     Etudiant etudiant;
 
 	public String getAdmin() {
