@@ -28,7 +28,6 @@ public class Etudiant {
 	@OneToOne(targetEntity=Utilisateur.class)
 	Utilisateur utilisateur;
 	
-	
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -41,13 +40,12 @@ public class Etudiant {
 	public void setId(Integer id) {
 		this.eid = id;
 	}
-/*	public Collection<Projet> getProjet() {
+	public Collection<Projet> getProjet() {
 		return projet;
 	}
 	public void setProjet(Collection<Projet> projet) {
 		this.projet = projet;
 	}
-	*/
 	public String getNom() {
 		return nom;
 	}
