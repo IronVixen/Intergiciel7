@@ -56,6 +56,14 @@ public class Utilisateur {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
+
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
+	}
 	
 
 }

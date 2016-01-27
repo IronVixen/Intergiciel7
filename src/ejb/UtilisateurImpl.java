@@ -1,13 +1,11 @@
 package ejb;
 
 import javax.ejb.Stateless;
-
 import javax.persistence.EntityManager;
-
 import javax.persistence.PersistenceContext;
-
 import javax.persistence.Query;
 
+import entities.Etudiant;
 import entities.Utilisateur;
 
 @Stateless
@@ -52,6 +50,11 @@ public class UtilisateurImpl {
         utilisateur = (Utilisateur) requete.getSingleResult();
         return utilisateur;
 
+    }
+    
+    public void lierUtilisateur(Long Id, Utilisateur utilisateur){
+    	Etudiant e = em.find(Etudiant.class, Id);
+    	utilisateur.setEtudiant(e);
     }
 
 }

@@ -29,6 +29,12 @@ public class Etudiant {
 	Utilisateur utilisateur;
 	
 	
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 	public Integer getId() {
 		return eid;
 	}
