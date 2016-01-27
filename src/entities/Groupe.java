@@ -19,7 +19,7 @@ public class Groupe {
 	private Integer pid;
 	
 	private String name;
-	@OneToMany(targetEntity=Etudiant.class,mappedBy="groupe",fetch=FetchType.EAGER)
+	@OneToMany(targetEntity=Etudiant.class,mappedBy="projet",fetch=FetchType.EAGER)
 	Collection<Etudiant> etudiants = new ArrayList<Etudiant>();
 	
 	public Integer getId() {

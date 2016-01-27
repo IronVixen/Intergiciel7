@@ -22,9 +22,9 @@ public class Etudiant {
 	private String prenom;
 	private String gtd;
 	
-	@ManyToOne(targetEntity=Groupe.class)
-	Collection<Groupe> groupe;
-
+/*	@ManyToOne(targetEntity=Projet.class)
+	Collection<Projet> projet;
+*/	
 	@OneToOne(targetEntity=Utilisateur.class)
 	Utilisateur utilisateur;
 	
@@ -41,12 +41,13 @@ public class Etudiant {
 	public void setId(Integer id) {
 		this.eid = id;
 	}
-	public Collection<Groupe> getGroupe() {
-		return groupe;
+/*	public Collection<Projet> getProjet() {
+		return projet;
 	}
-	public void setProjet(Collection<Groupe> groupe) {
-		this.groupe = groupe;
+	public void setProjet(Collection<Projet> projet) {
+		this.projet = projet;
 	}
+	*/
 	public String getNom() {
 		return nom;
 	}
