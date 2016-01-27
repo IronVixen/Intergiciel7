@@ -56,7 +56,7 @@
 <form action= "gestion" method="post">
 	<input type="submit" name="op" value="Former Groupe"> 
 	<input type="submit" name="op" value="Modifier Groupe"> 
-	<input type="submit" name="op" value="Annuler Groupe"> 
+	<input type="submit" name="op" value="Quitter Groupe"> 
 </form>
 
 </body>

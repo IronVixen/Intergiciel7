@@ -103,7 +103,7 @@ for(Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 		<br>
 		Prénom : <%=Etu.getPrenom()%>
 		<br>
-		Groupe : <%=Etu.getGtd() %>
+		Groupe de TD: <%=Etu.getGtd() %>
 		<br>
 		<br>
 	</div>

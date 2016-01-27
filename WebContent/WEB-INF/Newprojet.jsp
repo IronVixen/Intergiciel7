@@ -89,7 +89,18 @@
 	<br />
 	
 	</header>
+        <form method="post" action="Nouveau Groupe">
+            <fieldset>
+                <legend>Nouveau Groupe</legend>
 
+                <label for="nom">Nom du groupe</label>
+                <input type="text" id="nom" name="nom" value="" size="20" maxlength="20" />
+                <br />
+
+                <input type="submit" value="Inscription" class="sansLabel" />
+                <br />
+            </fieldset>
+        </form>
 
 </body>
 </html>
