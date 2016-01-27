@@ -17,7 +17,7 @@ import ejb.UtilisateurImpl;
  * Servlet implementation class Accueil
  */
 @WebServlet("/Projet")
-public class Projet extends HttpServlet{
+public class GestProjet extends HttpServlet{
 	
 private static final long serialVersionUID = 1L;      
 	
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 1L;
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public Projet() {
+    public GestProjet() {
         super();
         // TODO Auto-generated constructor stub
     }
