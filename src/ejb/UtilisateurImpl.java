@@ -29,7 +29,6 @@ public class UtilisateurImpl {
     		u.setEmail(utilisateur.getEmail());
     		u.setMotDePasse(utilisateur.getMotDePasse());
     		u.setNom(utilisateur.getNom());
-    		u.setLie("Non");
     		if (utilisateur.getNom().equals("Aussa"))
     		{
     			u.setAdmin("Oui");
@@ -50,12 +49,12 @@ public class UtilisateurImpl {
         requete.setParameter( PARAM_EMAIL, email );
         utilisateur = (Utilisateur) requete.getSingleResult();
         return utilisateur;
+
     }
     
     public void lierUtilisateur(Long Id, Utilisateur utilisateur){
     	Etudiant e = em.find(Etudiant.class, Id);
     	utilisateur.setEtudiant(e);
-    	utilisateur.setLie("Oui");
     }
 
 }

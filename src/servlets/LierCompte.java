@@ -58,12 +58,12 @@ private static final long serialVersionUID = 1L;
 		}
 		request.setAttribute("session", session);
 		
-		// Ce bloc est un test
         // Préparation de l'objet formulaire
         NewEtuForm form = new NewEtuForm();
 		request.setAttribute("nom", "Li Britannia");
 		request.setAttribute("prenom", "Derp");
 		request.setAttribute("gtd", "Z");
+		
         // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
         Etudiant etu = form.inscrireEtudiant( request );
         
@@ -85,7 +85,8 @@ private static final long serialVersionUID = 1L;
 		int idp = Integer.parseInt(sidp);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
-		utilisateurImpl.lierUtilisateur((long) idp, u);
+		//utilisateurImpl.lier(idp, u);
+		
 	}
 
 }
