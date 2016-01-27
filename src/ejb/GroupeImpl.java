@@ -12,7 +12,7 @@ import entities.Utilisateur;
 @Stateless
 
 
-public class ProjetImpl {
+public class GroupeImpl {
 
 	private static final String PARAM_NAME = "name";
 
@@ -24,9 +24,9 @@ public class ProjetImpl {
 	private EntityManager em;
 
 
-	public void creer( Groupe projet ) {
+	public void creer( Groupe groupe ) {
 		Groupe p = new Groupe();
-		p.setName(projet.getName());
+		p.setName(groupe.getName());
 		em.persist(p);
 	}
 
@@ -34,11 +34,11 @@ public class ProjetImpl {
 
 	public Groupe trouver( String name ){
 
-		Groupe projet = null;
+		Groupe groupe = null;
 		Query requete = em.createQuery( JPQL_SELECT_PAR_NAME );
 		requete.setParameter( PARAM_NAME, name );
-		projet = (Groupe) requete.getSingleResult();
-		return projet;
+		groupe = (Groupe) requete.getSingleResult();
+		return groupe;
 
 	}
 
