@@ -7,8 +7,8 @@
         <link type="text/css" rel="stylesheet" href="form.css" />
     </head>
     
-    <body>
- 
+	 <%String s = ( (String) session.getAttribute("Admin"));%>
+<body>
 
 	<header>
 
@@ -16,21 +16,15 @@
 		<div id="headerLinks"
 			style="position: absolute; top: 0; right: 10px; float: right;">
 
-			<%
-				if (request.getAttribute("Utilisateur") == null) {
-			%>
+			<%if( (s==null)?true:s.equals("Deco") ){%>
 			<form method="get" action="/plateformeGroupe/Connexion">
 				<input type="submit" value="Se Connecter">
 			</form>
-			<%
-				} else {
-			%>
-			<form method="get" action="/plateformeGroupe/Connexion">
-				<input type="submit" value="Se deconnecter">
-				<input type = "hidden" name="CheckDeco" value="deconnexion">
+			<form method="get" action="/plateformeGroupe/Inscription">
+				<input type="submit" value="S'inscrire">
 			</form>
 			<%
-				}
+			}
 			%>
 
 		</div>
@@ -43,45 +37,10 @@
 		</form></li>
 	<br />
 
-
-	<% String s = ( (String) request.getAttribute("Admin"));
-	if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/Projet">
-			<input type="submit" value="Projet">
+	<li><form method="get" action="/plateformeGroupe/Listeretu">
+			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
-
-	<% } %> 
-	
-	<% s = ( (String) request.getAttribute("Admin"));
-	if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
-			<input type="submit" value="Saisie Etudiant">
-		</form></li>
-	<br />
-	<% } %>
-
-
-	<li><form method="get" action="/plateformeGroupe/Lister">
-			<input type="submit" value="Lister">
-		</form></li>
-	<br />
-
-	<% s = ( (String) request.getAttribute("Admin"));
-	if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/Newprojet">
-			<input type="submit" value="Nouveau Projet">
-		</form></li>
-	<br />
-	<% } %> 
-	
-	<% s = ( (String) request.getAttribute("Admin"));
-	if( (s==null)?false:s.equals("Non") ){%>
-	<li><form method="get" action="/plateformeGroupe/Gestiongroupe">
-			<input type="submit" value="Gestion Groupe">
-		</form></li>
-	<br />
-	<% } %> 
 	
 	<li><form method="get" action="/plateformeGroupe/Demandes">
 			<input type="submit" value="Demandes">

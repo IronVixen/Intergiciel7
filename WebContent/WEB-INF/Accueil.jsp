@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ecran d'accueil</title>
 </head>
-
 <body>
 
 	<header>
@@ -14,12 +13,13 @@
 	<div id="topBar">
 		<div id="headerLinks"
 			style="position: absolute; top: 0; right: 10px; float: right;">
-
-			<%
-				if (request.getAttribute("Utilisateur") == null) {
-			%>
+			<%String s = ( (String) session.getAttribute("Admin"));%>
+			<%if( (s==null)?true:s.equals("Deco") ){%>
 			<form method="get" action="/plateformeGroupe/Connexion">
 				<input type="submit" value="Se Connecter">
+			</form>
+			<form method="get" action="/plateformeGroupe/Inscription">
+				<input type="submit" value="S'inscrire">
 			</form>
 			<%
 				} else {
@@ -43,16 +43,16 @@
 	<br />
 
 
-	<% String s = ( (String) session.getAttribute("Admin"));
-	if( (s==null)?false:s.equals("Oui") ){%>
+	<%s = ( (String) session.getAttribute("Admin"));%>
+	<%if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/Projet">
 			<input type="submit" value="Projet">
 		</form></li>
 	<br />
 
-	<% } %> 
+	<% }  
 	
-	<% s = ( (String) session.getAttribute("Admin"));
+	s = ( (String) session.getAttribute("Admin"));	
 	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
 			<input type="submit" value="Saisie Etudiant">
@@ -60,13 +60,21 @@
 	<br />
 	<% } %>
 
+	<%s = ( (String) session.getAttribute("Admin"));
+	Boolean lie = (Boolean) session.getAttribute("Lie");
+	if( (s==null)?false:s.equals("Non") && (lie == null)?true:lie.booleanValue()){%>
+	<li><form method="get" action="/plateformeGroupe/LierCompte">
+			<input type="submit" value="Lier le compte">
+		</form></li>
+	<br />
+	<% } %> 
 
 	<li><form method="get" action="/plateformeGroupe/Listeretu">
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
 
-	<% s = ( (String) request.getAttribute("Admin"));
+	<% 
 	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">

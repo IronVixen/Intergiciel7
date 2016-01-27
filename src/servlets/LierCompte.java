@@ -24,7 +24,7 @@ import forms.NewEtuForm;
  * Servlet implementation class Listeretu
  */
 @WebServlet("/Listeretu")
-public class Listeretu  extends HttpServlet{
+public class LierCompte  extends HttpServlet{
 private static final long serialVersionUID = 1L;      
 	
 	@EJB
@@ -35,7 +35,7 @@ private static final long serialVersionUID = 1L;
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public Listeretu() {
+    public LierCompte() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -56,33 +56,22 @@ private static final long serialVersionUID = 1L;
 				session.setAttribute("Admin", admin);
 			}
 		}
-		/*
-        // Préparation de l'objet formulaire
-        NewEtuForm form = new NewEtuForm();
-		request.setAttribute("nom", "Li Britannia");
-		request.setAttribute("prenom", "Derp");
-		request.setAttribute("gtd", "Z");
-		
-        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
-        Etudiant etu = form.inscrireEtudiant( request );
-        
-        if ( form.getErreurs().isEmpty() ) {
-        	etudiantImpl.creer(etu);
-        } else {
-        	System.out.println("Param�tre d'inscription incorrect");
-        }
-        */
+		request.setAttribute("session", session);
+
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
 		System.out.println(etudiantImpl.listeEtudiants());
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Listeretu.jsp").forward( request, response );
+        this.getServletContext().getRequestDispatcher("/WEB-INF/LierCompte.jsp").forward( request, response );
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Récupération du paramètre permettant d'indiquer d'où on vient
-		String op = request.getParameter("op");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		String sidp = request.getParameter("idp");
+		int idp = Integer.parseInt(sidp);
+		HttpSession session = (HttpSession) request.getAttribute("session");
+		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
+		//utilisateurImpl.lier(idp, u);
 		
 	}
 

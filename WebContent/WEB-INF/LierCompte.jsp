@@ -1,12 +1,10 @@
 <%@page import="java.util.Collection"%>
 <%@page import="entities.Etudiant;"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Liste etudiant</title>
+<meta charset="UTF-8">
+<title>Saisie Etudiant</title>
 </head>
 	 <%String s = ( (String) session.getAttribute("Admin"));%>
 <body>
@@ -92,23 +90,21 @@
 	
 	</header>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-Liste des étudiants :
-<% 
-for(Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
-%>
-	<div class=corps>
-		Nom : <%= Etu.getNom()%>
-		<br>
-		Prénom : <%=Etu.getPrenom()%>
-		<br>
-		Groupe : <%=Etu.getGtd() %>
-		<br>
-		<br>
-	</div>
-<%
-}
-%>
+<% Boolean l = (Boolean) session.getAttribute("Lie");
+if( (s==null)?false:s.equals("Non") && (l==null)?true:l ){%>
+	<form method="get" action="Controller">
+	<%
+	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
+	%>
+	  <input type='radio' name='idp' value='<%= Etu.getId()%>'/> <%= Etu.getNom()%><%= Etu.getPrenom()%>
+	  <br/>
+	<% } %>
+	
+	<input type="hidden" name="op" value="associer"/>
+	<input type="submit" value="OK"/>
+	</form>
+<% } %>	
+
 </body>
 </html>
