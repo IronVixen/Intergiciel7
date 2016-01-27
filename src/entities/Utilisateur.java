@@ -20,18 +20,8 @@ public class Utilisateur {
     private String motDePasse;
     @Column( name = "email" )
 	private String email;
-    public String getLie() {
-		return lie;
-	}
-
-	public void setLie(String lie) {
-		this.lie = lie;
-	}
-
-	@Column( name = "admin")
+    @Column( name = "admin")
     private String admin;
-    @Column( name = "lie")
-    private String lie;
     @OneToOne(targetEntity = Etudiant.class)
     Etudiant etudiant;
 

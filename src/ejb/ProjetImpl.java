@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import entities.Groupe;
+import entities.Projet;
 import entities.Utilisateur;
 
 
@@ -24,20 +24,20 @@ public class ProjetImpl {
 	private EntityManager em;
 
 
-	public void creer( Groupe projet ) {
-		Groupe p = new Groupe();
+	public void creer( Projet projet ) {
+		Projet p = new Projet();
 		p.setName(projet.getName());
 		em.persist(p);
 	}
 
 	// Recherche d'un utilisateur à partir de son adresse email
 
-	public Groupe trouver( String name ){
+	public Projet trouver( String name ){
 
-		Groupe projet = null;
+		Projet projet = null;
 		Query requete = em.createQuery( JPQL_SELECT_PAR_NAME );
 		requete.setParameter( PARAM_NAME, name );
-		projet = (Groupe) requete.getSingleResult();
+		projet = (Projet) requete.getSingleResult();
 		return projet;
 
 	}
