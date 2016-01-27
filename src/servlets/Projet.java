@@ -23,6 +23,7 @@ private static final long serialVersionUID = 1L;
 	
 	@EJB
 	 private UtilisateurImpl   utilisateurImpl;
+	@EJB
 	 private EtudiantImpl   etudiantImpl;
     
 	/**

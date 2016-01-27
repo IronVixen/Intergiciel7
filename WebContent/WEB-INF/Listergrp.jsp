@@ -111,7 +111,7 @@ for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 	Nom du groupe : <%= Proj.getName()%>
 	<br>
 	<% 
-	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtu()) {
+	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtudiants()) {
 	%>
 			Nom : <%= Etu.getNom()%>
 			<br>
