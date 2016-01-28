@@ -87,7 +87,7 @@ public class SaisieEtudiant extends HttpServlet {
 	        	System.out.println("Paramètre d'inscription incorrect");
 	        }
 		}
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
+        this.getServletContext().getRequestDispatcher("/WEB-INF/SaisieEtudiant.jsp").forward( request, response );
 		
 	}
 

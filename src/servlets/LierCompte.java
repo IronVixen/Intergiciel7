@@ -77,7 +77,7 @@ private ProjetImpl   projetImpl;
 		int ide = Integer.parseInt(side);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) request.getAttribute("Utilisateur");
-		utilisateurImpl.lierUtilisateur((long) ide, u);
+		utilisateurImpl.lierUtilisateur((Integer) ide, u);
     	session.setAttribute("Lie", "Oui");
     	System.out.println(u.getLie());
 		
