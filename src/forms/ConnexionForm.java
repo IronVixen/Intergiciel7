@@ -73,14 +73,6 @@ public final class ConnexionForm {
 			setErreur( CHAMP_PASS, e.getMessage() );
 
 		}
-		/*
-		utilisateur.setEmail( email );
-		utilisateur.setMotDePasse( motDePasse );
-		utilisateur.setNom(utilisateurImpl.trouver(email).getNom());
-		utilisateur.setAdmin(utilisateurImpl.trouver(email).getAdmin());
-		*/
-		
-		/* Initialisation du résultat global de la validation. */
 
 		if ( erreurs.isEmpty() ) {
 

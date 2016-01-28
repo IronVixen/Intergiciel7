@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Inscription</title>
-        <link type="text/css" rel="stylesheet" href="form1.css" />
+        <link type="text/css" rel="stylesheet" href="accueil.css" />
     </head>
     
 	 <%String s = ( (String) session.getAttribute("Admin"));%>
