@@ -76,7 +76,7 @@ private ProjetImpl   projetImpl;
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
 		Etudiant e = u.getEtudiant();
 		if (e!=null) {
-			etudiantImpl.lierEtudiantProjet(e.getId(),(long) idg);
+			etudiantImpl.lierEtudiantProjet((long) e.getId(),(long) idg);
 		}
         this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
 	}
