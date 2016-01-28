@@ -87,9 +87,9 @@
 	<br />
 	
 	</header>
-
+<%s = ( (String) session.getAttribute("Admin"));%>
 <% if( (s==null)?false:s.equals("Oui") ){%>
-<form action= "accueil" method="post">
+<form action= "SaisieEtudiant" method="post">
 Nom+Prenom+GTD</br>
 <textarea rows="5" cols="50" name="letudiant"></textarea></br>
 <input type="submit" value="OK">

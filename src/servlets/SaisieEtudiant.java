@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import ejb.EtudiantImpl;
 import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
+import parseur.Parseur;
 
 @WebServlet("/SaisieEtudiant")
 public class SaisieEtudiant extends HttpServlet {
@@ -51,7 +53,7 @@ public class SaisieEtudiant extends HttpServlet {
 			}
 		}
 		
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Saisieetudiant.jsp").forward( request, response );
+        this.getServletContext().getRequestDispatcher("/WEB-INF/SaisieEtudiant.jsp").forward( request, response );
 	}
 
 	/**
@@ -61,42 +63,18 @@ public class SaisieEtudiant extends HttpServlet {
 		// Récupération du paramètre permettant d'indiquer d'où on vient
 		String op = request.getParameter("op");
 		
+		String listetu = request.getParameter("letudiant");
+		System.out.println("COUCOU" + listetu);
+		Parseur p = new Parseur(listetu);
+		ArrayList<ArrayList<String>> listes = p.parse();
+		for(int i = 0 ; i < listes.size(); i++) {
+			ArrayList<String> listemp = listes.get(i);
+			System.out.println(listemp.get(0));
+			System.out.println(listemp.get(1));
+			System.out.println(listemp.get(2));
+		}
+		request.getRequestDispatcher( "/SaisieEtudiant.jsp" ).forward( request, response );	
 		
-		/*
-		//Redirection
-		if(op.equals("se")){		
-			String paramletudiant = request.getParameter("letudiant");
-			String letudiant_bis[] = new String[6];
-			
-			// Problème letudiant_bis envoyé marche mais vide du coup voir probleme avec le tableau
-			
-			//letudiant_bis = paramletudiant.split("\n");		
-			etudiantImpl.ajoutEtudiant("Bekrar","Sami");
-			System.out.println("Sami qui �crit des trucs");
-			request.setAttribute("paramletudiant", paramletudiant);
-			request.setAttribute("letudiant_bis", letudiant_bis);
-			request.getRequestDispatcher( "/Saisieetudiant.jsp" ).forward( request, response );	
-		}
-		*/
-		/*
-		//Redirection
-		if(op.equals("Lister")){		
-			request.setAttribute("etudiants", etudiantImpl.listeEtudiants());
-			request.getRequestDispatcher( "/Lister" ).forward( request, response );	
-		}
-		
-		if(op.equals("Nouveau Projet")){		
-			request.getRequestDispatcher( "/Newprojet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Projet")){		
-			request.getRequestDispatcher( "/Projet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Accueil")){
-			request.getRequestDispatcher( "/Accueil").forward(request, response);
-		}
-		*/
 	}
 
 }
