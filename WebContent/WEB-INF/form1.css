@@ -1,0 +1,71 @@
+/* Général ------------------------------------------------------------------------------------- */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+body, p, legend, label, input {
+    font-family:"palatino linotype", palatino, serif;
+    background-color:#455A64;
+}
+
+fieldset {
+    padding: 10px;
+    border: 1px #4CAF50 solid;
+    color:white;
+}
+
+legend {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Forms --------------------------------------------------------------------------------------- */
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+}

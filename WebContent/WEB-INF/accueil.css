@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+input[type=button], input[type=submit], input[type=reset] {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #4CAF50;
+     display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #555;
+    color: white;
+    font-family:"palatino linotype", palatino, serif;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family:"palatino linotype", palatino, serif;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+body, p, legend, label, input {
+    font-family:"palatino linotype", palatino, serif;
+    background-color:#455A64;
+}
