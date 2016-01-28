@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import ejb.EtudiantImpl;
 import ejb.ProjetImpl;
 import ejb.UtilisateurImpl;
+import entities.Etudiant;
+import forms.NewEtuForm;
 import parseur.Parseur;
 
 @WebServlet("/SaisieEtudiant")
@@ -69,11 +71,23 @@ public class SaisieEtudiant extends HttpServlet {
 		ArrayList<ArrayList<String>> listes = p.parse();
 		for(int i = 0 ; i < listes.size(); i++) {
 			ArrayList<String> listemp = listes.get(i);
-			System.out.println(listemp.get(0));
-			System.out.println(listemp.get(1));
-			System.out.println(listemp.get(2));
+
+	        // Préparation de l'objet formulaire
+	        NewEtuForm form = new NewEtuForm();
+			request.setAttribute("nom", listemp.get(0));
+			request.setAttribute("prenom", listemp.get(1));
+			request.setAttribute("gtd", listemp.get(2));
+			
+	        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
+	        Etudiant etu = form.inscrireEtudiant( request );
+	        
+	        if ( form.getErreurs().isEmpty() ) {
+	        	etudiantImpl.creer(etu);
+	        } else {
+	        	System.out.println("Param�tre d'inscription incorrect");
+	        }
 		}
-		request.getRequestDispatcher( "/SaisieEtudiant.jsp" ).forward( request, response );	
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
 		
 	}
 

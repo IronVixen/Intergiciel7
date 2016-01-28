@@ -60,21 +60,7 @@ private ProjetImpl   projetImpl;
 			}
 		}
 		request.setAttribute("session", session);
-		
-        // Préparation de l'objet formulaire
-        NewEtuForm form = new NewEtuForm();
-		request.setAttribute("nom", "Li Britannia");
-		request.setAttribute("prenom", "Derp");
-		request.setAttribute("gtd", "Z");
-		
-        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
-        Etudiant etu = form.inscrireEtudiant( request );
-        
-        if ( form.getErreurs().isEmpty() ) {
-        	etudiantImpl.creer(etu);
-        } else {
-        	System.out.println("Param�tre d'inscription incorrect");
-        }
+	
 
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
         this.getServletContext().getRequestDispatcher("/WEB-INF/LierCompte.jsp").forward( request, response );
