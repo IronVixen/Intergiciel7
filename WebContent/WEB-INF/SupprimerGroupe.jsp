@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Liste des Groupes</title>
+<title>Supprimer un Groupe</title>
+<link type="text/css" rel="stylesheet" href="accueil.css" />
 </head>
 <body>
 

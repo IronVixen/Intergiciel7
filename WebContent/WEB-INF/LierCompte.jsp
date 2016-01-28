@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Saisie Etudiant</title>
+<title>Lier un compte</title>
+        <link type="text/css" rel="stylesheet" href="accueil.css" />
+
 </head>
 
 <body>

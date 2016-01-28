@@ -12,7 +12,7 @@
 
         <title>Déconnexion</title>
 
-        <link type="text/css" rel="stylesheet" href="form.css" />
+        <link type="text/css" rel="stylesheet" href="accueil.css" />
 
     </head>
 

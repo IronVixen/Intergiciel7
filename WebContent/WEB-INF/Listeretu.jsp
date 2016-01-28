@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Liste etudiant</title>
+<link type="text/css" rel="stylesheet" href="accueil.css" />
 </head>
 	 <%String s = ( (String) session.getAttribute("Admin"));%>
 <body>

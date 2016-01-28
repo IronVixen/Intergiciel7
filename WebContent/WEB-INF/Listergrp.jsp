@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Liste des Groupes</title>
+<link type="text/css" rel="stylesheet" href="accueil.css" />
 </head>
 <body>
 
@@ -108,18 +109,23 @@ Liste des groupes :
 for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 %>
 <p>
-	Nom du groupe : <%= Proj.getNom()%>
 	<br>
 	<% 
 	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtudiants()) {
 	%>
-			Nom : <%= Etu.getNom()%>
-			<br>
-			Prénom : <%=Etu.getPrenom()%>
-			<br>
-			Groupe de TD : <%=Etu.getGtd() %>
-			<br>
-			<br>
+	<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Groupe de TD</th>
+    <th>Nom du Groupe</th>
+  </tr>
+    <tr>
+    <td><%= Etu.getNom()%></td>
+    <td><%=Etu.getPrenom()%></td>
+    <td><%=Etu.getGtd() %></td>
+    <td><%= Proj.getNom()%></td>
+  </tr>
 	<%
 	}
 	%>
@@ -127,5 +133,6 @@ for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 <%
 }
 %>
+
 </body>
 </html>

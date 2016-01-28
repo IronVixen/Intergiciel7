@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Saisie Etudiant</title>
+<title>Former les groupes</title>
+        <link type="text/css" rel="stylesheet" href="accueil.css" />
+
 </head>
 
 <body>
