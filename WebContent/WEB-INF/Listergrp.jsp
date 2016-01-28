@@ -108,7 +108,7 @@ Liste des groupes :
 for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 %>
 <p>
-	Nom du groupe : <%= Proj.getName()%>
+	Nom du groupe : <%= Proj.getNom()%>
 	<br>
 	<% 
 	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtudiants()) {

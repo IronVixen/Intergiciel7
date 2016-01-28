@@ -17,7 +17,7 @@ import entities.Utilisateur;
 
 public class ProjetImpl {
 
-	private static final String PARAM_NAME = "name";
+	private static final String PARAM_NAME = "nom";
 
 	private static final String JPQL_SELECT_PAR_NAME = "SELECT p FROM Projet p WHERE p.name=:name";
 	// Injection du manager, qui s'occupe de la connexion avec la BDD
@@ -29,7 +29,7 @@ public class ProjetImpl {
 
 	public void creer( Projet projet ) {
 		Projet p = new Projet();
-		p.setName(projet.getName());
+		p.setNom(projet.getNom());
 		em.persist(p);
 	}
 

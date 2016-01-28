@@ -24,7 +24,7 @@ public Map<String, String> getErreurs() {
 
 public Projet inscrireProjet( HttpServletRequest request ) {
 
-    String nom = (String) request.getAttribute(CHAMP_NOM );
+    String nom = (String) request.getParameter(CHAMP_NOM );
     Projet proj = new Projet();
 
     try {
@@ -37,8 +37,7 @@ public Projet inscrireProjet( HttpServletRequest request ) {
         setErreur( CHAMP_NOM, e.getMessage() );
 
     }
-    proj.setName( nom );
-
+    proj.setNom(nom);
     if ( erreurs.isEmpty() ) {
 
         resultat = "Succès de l'inscription.";
@@ -57,7 +56,7 @@ private void validationNom( String nom ) throws Exception {
 
     if ( nom != null && nom.length() < 2 ) {
 
-        throw new Exception( "Le nom d'utilisateur doit contenir au moins 2 caractères." );
+        throw new Exception( "Le nom de groupe doit contenir au moins 2 caractères." );
 
     }
 

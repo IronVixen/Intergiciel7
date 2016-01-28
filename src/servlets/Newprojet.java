@@ -63,7 +63,7 @@ private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Récupération du paramètre permettant d'indiquer d'où on vient
 		String op = request.getParameter("op");
-		
+
         // Préparation de l'objet formulaire
         NewProjForm form = new NewProjForm();
 		
@@ -75,6 +75,7 @@ private static final long serialVersionUID = 1L;
         } else {
         	System.out.println("Param�tre d'inscription incorrect");
         }
+    this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
 	}
 
 }

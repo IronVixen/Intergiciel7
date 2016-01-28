@@ -18,7 +18,7 @@ public class Projet {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer pid;
 	
-	private String name;
+	private String nom;
 	@OneToMany(targetEntity=Etudiant.class,mappedBy="projet",fetch=FetchType.EAGER)
 	Collection<Etudiant> etudiants = new ArrayList<Etudiant>();
 	
@@ -29,11 +29,11 @@ public class Projet {
 	public void setId(Integer id) {
 		this.pid = id;
 	}
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String name) {
+		this.nom = name;
 	}
     public Collection<Etudiant> getEtudiants() {
 		return etudiants;

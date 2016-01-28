@@ -94,10 +94,10 @@
                 <legend>Nouveau Groupe</legend>
 
                 <label for="nom">Nom du groupe</label>
-                <input type="text" id="nom" name="nom" value="" size="20" maxlength="20" />
+                <input type="text" name="nom"/>
                 <br />
+                <input type="submit" name="nom"/>
 
-                <input type="submit" value="Inscription" class="sansLabel" />
                 <br />
             </fieldset>
         </form>
