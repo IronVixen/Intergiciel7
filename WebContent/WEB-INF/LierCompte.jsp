@@ -14,7 +14,7 @@
 	<div id="topBar">
 		<div id="headerLinks"
 			style="position: absolute; top: 0; right: 10px; float: right;">
-	 <%String s = ( (String) session.getAttribute("Admin"));%>
+			<%String s = ( (String) session.getAttribute("Admin"));%>
 			<%if( (s==null)?true:s.equals("Deco") ){%>
 			<form method="get" action="/plateformeGroupe/Connexion">
 				<input type="submit" value="Se Connecter">
@@ -25,9 +25,8 @@
 			<%
 				} else {
 			%>
-			<form method="get" action="/plateformeGroupe/Connexion">
-				<input type="submit" value="Se deconnecter">
-				<input type = "hidden" name="CheckDeco" value="deconnexion">
+			<form method="get" action="/plateformeGroupe/Deconnexion">
+				<input type="submit" value="Se deconnecter"/>
 			</form>
 			<%
 				}
@@ -43,16 +42,17 @@
 		</form></li>
 	<br />
 
-<%s = ( (String) session.getAttribute("Admin"));%>
+
+	<%s = ( (String) session.getAttribute("Admin"));%>
 	<%if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/GestProjet">
 			<input type="submit" value="Projet">
 		</form></li>
 	<br />
 
-	<% } %> 
-
-	<% 
+	<% }  
+	
+	s = ( (String) session.getAttribute("Admin"));	
 	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
 			<input type="submit" value="Saisie Etudiant">
@@ -60,18 +60,33 @@
 	<br />
 	<% } %>
 
+	<%s = ( (String) session.getAttribute("Admin"));
+	String lie = (String) session.getAttribute("Lie");
+	if( (s==null)?false:s.equals("Non") && ((lie==null)?true:lie.equals("Non"))){%>
+	<li><form method="get" action="/plateformeGroupe/LierCompte">
+			<input type="submit" value="Lier le compte">
+		</form></li>
+	<br />
+	<% } %> 
 
 	<li><form method="get" action="/plateformeGroupe/Listeretu">
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
+	
+	<li><form method="get" action="/plateformeGroupe/Listergrp">
+			<input type="submit" value="Lister Groupe">
+		</form></li>
+	<br />
+
 	<% 
-	if( (s==null)?false:s.equals("Oui") ){%>
+	if( !(s==null) ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>
 	<br />
 	<% } %> 
+	
 	<% s = ( (String) request.getAttribute("Admin"));
 	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Gestiongroupe">
@@ -87,6 +102,7 @@
 	
 	</header>
 <%s = ( (String) session.getAttribute("Admin"));%>
+<%lie = ( (String) session.getAttribute("Lie"));%>
 <%if( (s==null)?false:s.equals("Non") ){%>
 	<form method="get" action="LierCompte">
 	<%

@@ -53,11 +53,20 @@
 	
 	</header>
 
-<form action= "gestion" method="post">
-	<input type="submit" name="op" value="Former Groupe"> 
-	<input type="submit" name="op" value="Modifier Groupe"> 
-	<input type="submit" name="op" value="Quitter Groupe"> 
-</form>
+	<li><form method="get" action="/plateformeGroupe/NewProjet">
+			<input type="submit" value="Former un groupe">
+		</form></li>
 
+	<li><form method="get" action="/plateformeGroupe/Accueil">
+			<input type="submit" value="Former les groupes">
+		</form></li>
+	
+	<li><form method="get" action="/plateformeGroupe/Accueil">
+			<input type="submit" value="Retirer des élèves">
+		</form></li>
+
+	<li><form method="get" action="/plateformeGroupe/Accueil">
+			<input type="submit" value="Retirer des élèves">
+	</form></li>
 </body>
 </html>

@@ -63,7 +63,7 @@ private ProjetImpl   projetImpl;
 	
 
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
-        this.getServletContext().getRequestDispatcher("/WEB-INF/LierCompte.jsp").forward( request, response );
+        this.getServletContext().getRequestDispatcher("/WEB-INF/JoinProjet.jsp").forward( request, response );
 	}
 
 	/**
@@ -74,8 +74,11 @@ private ProjetImpl   projetImpl;
 		int idg = Integer.parseInt(sidg);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
-		utilisateurImpl.lierUtilisateur((long) idg, u);
-		
+		Etudiant e = u.getEtudiant();
+		if (e!=null) {
+			etudiantImpl.lierEtudiantProjet(e.getId(),(long) idg);
+		}
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
 	}
 
 }
