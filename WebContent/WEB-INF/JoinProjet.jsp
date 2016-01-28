@@ -1,3 +1,5 @@
+<%@page import="java.util.Collection"%>
+<%@page import="entities.Projet;"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -101,6 +103,22 @@
 	
 	</header>
 
+<%s = ( (String) session.getAttribute("Admin"));%>
+<%String l = ( (String) session.getAttribute("Lie"));%>
+<%String g = ( (String) session.getAttribute("EnGroupe"));%>
 
+<%if( (s==null)?false:s.equals("Non") && (l==null)?true:l.equals("Oui") && (g==null)?true:g.equals("Non") ){%>
+	<form method="get" action="JoinProjet">
+	<%
+	for (Projet proj : (Collection<Projet>)  request.getAttribute("listproj")) {
+	%>
+	  <input type='radio' name='idg' value='<%= proj.getId()%>'/><%= proj.getNom()%>
+	  <br/>
+	<% } %>
+	
+	<input type="hidden" name="op" value="associer"/>
+	<input type="submit" value="OK"/>
+	</form>
+<% } %>	
 </body>
 </html>
