@@ -63,34 +63,6 @@ private static final long serialVersionUID = 1L;
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Récupération du paramètre permettant d'indiquer d'où on vient
-		String op = request.getParameter("op");
-		
-		
-		
-		//Redirection
-		/*
-		if(op.equals("Lister")){		
-			request.setAttribute("etudiants", etudiantImpl.listeEtudiants());
-			request.getRequestDispatcher( "/plateformeGroupe/Lister" ).forward( request, response );	
-		}
-		
-		if(op.equals("Nouveau Projet")){		
-			request.getRequestDispatcher( "/plateformeGroupe/Newprojet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Projet")){		
-			request.getRequestDispatcher( "/plateformeGroupe/Projet" ).forward( request, response );	
-		}
-		
-		if(op.equals("Saisie Etudiant")){  
-			request.getRequestDispatcher( "/plateformeGroupe/SaisieEtudiant" ).forward( request, response ); 
-		}
-		
-		if(op.equals("Accueil")){
-			request.getRequestDispatcher( "/plateformeGroupe/Accueil").forward(request, response);
-		}
-		*/
 	}
 
 }

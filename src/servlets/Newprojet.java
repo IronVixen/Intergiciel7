@@ -75,7 +75,7 @@ private static final long serialVersionUID = 1L;
         } else {
         	System.out.println("Paramètre d'inscription incorrect");
         }
-    this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
+    this.getServletContext().getRequestDispatcher("/WEB-INF/Newprojet.jsp").forward( request, response );
 	}
 
 }

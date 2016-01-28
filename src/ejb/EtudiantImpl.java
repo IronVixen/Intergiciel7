@@ -36,7 +36,7 @@ public class EtudiantImpl {
 		return em.createQuery("from Etudiant", Etudiant.class).getResultList();
 	}
 	
-	public void lierEtudiantProjet (long ide ,long idp){
+	public void lierEtudiantProjet (int ide ,int idp){
 		Projet p = em.find(Projet.class, idp);
 		Etudiant e = em.find(Etudiant.class, ide);
 		p.addEtudiant(e);

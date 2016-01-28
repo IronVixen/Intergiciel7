@@ -56,8 +56,8 @@ public class FormerGroupe extends HttpServlet {
 
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-		long ide = (Long) request.getAttribute("ide");
-		long idp = (Long) request.getAttribute("idp");
+		int ide = (Integer) request.getAttribute("ide");
+		int idp = (Integer) request.getAttribute("idp");
 
 		etudiantImpl.lierEtudiantProjet(ide, idp);
 				
