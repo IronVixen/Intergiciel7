@@ -30,7 +30,7 @@ public class UtilisateurImpl {
     		u.setMotDePasse(utilisateur.getMotDePasse());
     		u.setNom(utilisateur.getNom());
     		u.setLie("Non");
-    		if (utilisateur.getNom().equals("Aussa"))
+    		if (utilisateur.getNom().equals("Hagimont"))
     		{
     			u.setAdmin("Oui");
     		}
