@@ -107,12 +107,15 @@
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%if( (s==null)?false:s.equals("Oui") ){%>
 	<form method="get" action="FormerGroupe">
+	Liste des groupes :<br>
 		<%
+		
 	for (Projet p : (Collection<Projet>)  request.getAttribute("listproj")) {
 	%>
 	  <input type='radio' name='idp' value='<%= p.getId()%>'/><%= p.getNom()%>
 	  <br/>
 	<% } %>
+	Liste des étudiants :<br>
 	<%
 	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 	%>

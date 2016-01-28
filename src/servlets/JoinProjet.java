@@ -62,7 +62,7 @@ private ProjetImpl   projetImpl;
 		request.setAttribute("session", session);
 	
 
-		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
+		request.setAttribute("listproj", etudiantImpl.listeEtudiants());
         this.getServletContext().getRequestDispatcher("/WEB-INF/JoinProjet.jsp").forward( request, response );
 	}
 

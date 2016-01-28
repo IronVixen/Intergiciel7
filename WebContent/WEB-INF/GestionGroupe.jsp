@@ -53,7 +53,7 @@
 	
 	</header>
 
-	<li><form method="get" action="/plateformeGroupe/NewProjet">
+	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Créer un groupe">
 		</form></li>
 

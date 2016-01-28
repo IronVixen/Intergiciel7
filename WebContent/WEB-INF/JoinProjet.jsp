@@ -105,9 +105,8 @@
 
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%String l = ( (String) session.getAttribute("Lie"));%>
-<%String g = ( (String) session.getAttribute("EnGroupe"));%>
 
-<%if( (s==null)?false:s.equals("Non") && (l==null)?true:l.equals("Oui") && (g==null)?true:g.equals("Non") ){%>
+<%if( (s==null)?false:s.equals("Non") && (l==null)?true:l.equals("Oui")){%>
 	<form method="get" action="JoinProjet">
 	<%
 	for (Projet proj : (Collection<Projet>)  request.getAttribute("listproj")) {

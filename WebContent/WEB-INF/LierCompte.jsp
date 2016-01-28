@@ -104,7 +104,7 @@
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%lie = ( (String) session.getAttribute("Lie"));%>
 <%if( (s==null)?false:s.equals("Non") ){%>
-	<form method="get" action="LierCompte">
+	<form method="post" action="LierCompte">
 	<%
 	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 	%>

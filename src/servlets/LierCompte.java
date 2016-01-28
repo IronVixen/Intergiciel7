@@ -61,23 +61,9 @@ private ProjetImpl   projetImpl;
 		}
 		request.setAttribute("session", session);
 		
-        // Préparation de l'objet formulaire
-        NewEtuForm form = new NewEtuForm();
-		request.setAttribute("nom", "Li Britannia");
-		request.setAttribute("prenom", "Derp");
-		request.setAttribute("gtd", "Z");
-		
-        // Appel au traitement et à la validation de la requête, et récupération du bean en résultant 
-        Etudiant etu = form.inscrireEtudiant( request );
         
-        if ( form.getErreurs().isEmpty() ) {
-        	etudiantImpl.creer(etu);
-        	session.setAttribute("Lie", "Oui");
-        	Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur"); 
-        	utilisateurImpl.trouver(utilisateur.getEmail()).setLie("Oui");
-        } else {
-        	System.out.println("Param�tre d'inscription incorrect");
-        }
+
+
 
 		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
         this.getServletContext().getRequestDispatcher("/WEB-INF/LierCompte.jsp").forward( request, response );
@@ -86,12 +72,14 @@ private ProjetImpl   projetImpl;
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String side = request.getParameter("ide");
 		int ide = Integer.parseInt(side);
 		HttpSession session = (HttpSession) request.getAttribute("session");
-		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
+		Utilisateur u = (Utilisateur) request.getAttribute("Utilisateur");
 		utilisateurImpl.lierUtilisateur((long) ide, u);
+    	session.setAttribute("Lie", "Oui");
+    	System.out.println(u.getLie());
 		
 	}
 

@@ -56,6 +56,7 @@ public class UtilisateurImpl {
     public void lierUtilisateur(Long Id, Utilisateur utilisateur){
     	Etudiant e = em.find(Etudiant.class, Id);
     	utilisateur.setEtudiant(e);
+    	utilisateur.setLie("Oui");
     }
 
 }

@@ -108,6 +108,8 @@ Liste des groupes :
 for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 %>
 <p>
+	<form method="get" action="SupprimerGroupe">
+
 	 <input type='radio' name='idp' value='<%= Proj.getId()%>'/><%= Proj.getNom()%>
 	<br>
 	<% 
@@ -123,6 +125,7 @@ for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 	<%
 	}
 	%>
+	</form>
 </p>
 <%
 }

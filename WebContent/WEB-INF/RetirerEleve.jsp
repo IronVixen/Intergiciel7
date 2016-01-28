@@ -105,13 +105,13 @@
 	
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%if( (s==null)?false:s.equals("Oui") ){%>
-	<form method="get" action="FormerGroupe">
+	<form method="get" action="RetirerEleve">
 		<%
 	for (Projet p : (Collection<Projet>)  request.getAttribute("listproj")) {
 	%>
 	  <%= p.getNom()%>
 	  <br/>
-
+		
 		<%
 		for (Etudiant Etu : (Collection<Etudiant>)  p.getEtudiants()) {
 		%>
