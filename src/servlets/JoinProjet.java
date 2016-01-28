@@ -73,7 +73,7 @@ private ProjetImpl   projetImpl;
 		String sidp = request.getParameter("idp");
 		int idp = Integer.parseInt(sidp);
 		HttpSession session = (HttpSession) request.getAttribute("session");
-		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
+		Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
 		Etudiant e = u.getEtudiant();
 		if (e!=null) {
 			etudiantImpl.lierEtudiantProjet((Integer) e.getId(),(Integer) idp);

@@ -53,8 +53,10 @@ public class UtilisateurImpl {
 
     }
     
-    public void lierUtilisateur(int Id, Utilisateur utilisateur){
-    	Etudiant e = em.find(Etudiant.class, Id);
+    public void lierUtilisateur(int id, Utilisateur utilisateur){
+    	Etudiant e = em.find(Etudiant.class, id);
+    	System.out.println(id);
+    	System.out.println(e);
     	utilisateur.setEtudiant(e);
     	utilisateur.setLie("Oui");
     }
