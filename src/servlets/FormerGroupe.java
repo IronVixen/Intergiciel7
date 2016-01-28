@@ -16,16 +16,14 @@ import ejb.UtilisateurImpl;
 import entities.Utilisateur;
 import forms.ConnexionForm;
 
-@WebServlet("/GestionGroupe")
-public class GestionGroupe extends HttpServlet{
-	/**
-	 * 
-	 */
+@WebServlet("/FormerGroupe")
+public class FormerGroupe extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 	public static final String ATT_USER         = "utilisateur";
 	public static final String ATT_FORM         = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String VUE              = "/WEB-INF/GestionGroupe.jsp";
+	public static final String VUE              = "/WEB-INF/FormerGroupe.jsp";
 
 	// Injection de notre EJB (Session Bean Stateless)
 	@EJB
@@ -52,12 +50,15 @@ public class GestionGroupe extends HttpServlet{
 
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
+	
 
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
+		long ide = (Long) request.getAttribute("ide");
+		long idp = (Long) request.getAttribute("idp");
 
-
-
+		etudiantImpl.lierEtudiantProjet(ide, idp);
+				
 	}
 
 }
