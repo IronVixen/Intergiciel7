@@ -55,7 +55,7 @@ public class RetirerEleve extends HttpServlet {
 			}
 		}
 		
-		
+		request.setAttribute("listeproj", projetImpl.listeProjets());
         this.getServletContext().getRequestDispatcher("/WEB-INF/RetirerEleve.jsp").forward( request, response );
 	}
 

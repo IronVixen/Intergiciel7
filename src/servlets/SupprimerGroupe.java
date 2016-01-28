@@ -56,7 +56,7 @@ public class SupprimerGroupe extends HttpServlet{
 			}
 		}
 		
-		
+		request.setAttribute("listeproj", projetImpl.listeProjets());
         this.getServletContext().getRequestDispatcher("/WEB-INF/SupprimerGroupe.jsp").forward( request, response );
 	}
 

@@ -47,6 +47,8 @@ public class FormerGroupe extends HttpServlet {
 				session.setAttribute("Admin", admin);
 			}
 		}
+		request.setAttribute("listproj", projetImpl.listeProjets());
+		request.setAttribute("listetu", etudiantImpl.listeEtudiants());
 
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
