@@ -42,7 +42,7 @@
 	<li><form method="get" action="/plateformeGroupe/Accueil">
 			<input type="submit" value="Accueil">
 		</form></li>
-	<br />
+	
 
 
 	<%s = ( (String) session.getAttribute("Admin"));%>
@@ -50,7 +50,7 @@
 	<li><form method="get" action="/plateformeGroupe/GestionGroupe">
 			<input type="submit" value="Gestion des groupes">
 		</form></li>
-	<br />
+	
 
 	<% }  
 	
@@ -59,7 +59,7 @@
 	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
 			<input type="submit" value="Saisie Etudiant">
 		</form></li>
-	<br />
+	
 	<% } %>
 
 	<%s = ( (String) session.getAttribute("Admin"));
@@ -68,25 +68,25 @@
 	<li><form method="get" action="/plateformeGroupe/LierCompte">
 			<input type="submit" value="Lier le compte">
 		</form></li>
-	<br />
+	
 	<% } %> 
 
 	<li><form method="get" action="/plateformeGroupe/Listeretu">
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
-	<br />
+	
 	
 	<li><form method="get" action="/plateformeGroupe/Listergrp">
 			<input type="submit" value="Lister Groupe">
 		</form></li>
-	<br />
+	
 
 	<% s = ( (String) session.getAttribute("Admin"));
 	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>
-	<br />
+	
 	<% } %> 
 	
 	<% s = ( (String) session.getAttribute("Admin"));
@@ -94,7 +94,7 @@
 	<li><form method="get" action="/plateformeGroupe/JoinProjet">
 			<input type="submit" value="Rejoindre un groupe">
 		</form></li>
-	<br />
+	
 	<% } %> 
 	
 	</header>

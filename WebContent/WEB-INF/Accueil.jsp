@@ -40,7 +40,6 @@
 	<li><form method="get" action="/plateformeGroupe/Accueil">
 			<input type="submit" value="Accueil">
 		</form></li>
-	<br />
 
 
 	<%s = ( (String) session.getAttribute("Admin"));%>
@@ -48,7 +47,6 @@
 	<li><form method="get" action="/plateformeGroupe/GestionGroupe">
 			<input type="submit" value="Gestion des groupes">
 		</form></li>
-	<br />
 
 	<% }  
 	
@@ -57,7 +55,6 @@
 	<li><form method="get" action="/plateformeGroupe/SaisieEtudiant">
 			<input type="submit" value="Saisie Etudiant">
 		</form></li>
-	<br />
 	<% } %>
 
 	<%s = ( (String) session.getAttribute("Admin"));

@@ -17,6 +17,30 @@
     </head>
 
     <body>
+    
+    	<div id="topBar">
+		<div id="headerLinks"
+			style="position: absolute; top: 0; right: 10px; float: right;">
+			<%String s = ( (String) session.getAttribute("Admin"));%>
+			<%if( (s==null)?true:s.equals("Deco") ){%>
+			<form method="get" action="/plateformeGroupe/Connexion">
+				<input type="submit" value="Se Connecter">
+			</form>
+			<form method="get" action="/plateformeGroupe/Inscription">
+				<input type="submit" value="S'inscrire">
+			</form>
+			<%
+				} else {
+			%>
+			<form method="get" action="/plateformeGroupe/Deconnexion">
+				<input type="submit" value="Se deconnecter"/>
+			</form>
+			<%
+				}
+			%>
+
+		</div>
+	</div>
 	<li><form method="get" action="/plateformeGroupe/Accueil">
 			<input type="submit" value="Accueil">
 		</form></li>
