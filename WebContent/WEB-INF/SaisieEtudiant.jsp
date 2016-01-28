@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>Saisie Etudiant</title>
 </head>
-	 <%String s = ( (String) session.getAttribute("Admin"));%>
+
 <body>
 
 <header>
-
+	 <%String s = ( (String) session.getAttribute("Admin"));%>
 	<div id="topBar">
 		<div id="headerLinks"
 			style="position: absolute; top: 0; right: 10px; float: right;">

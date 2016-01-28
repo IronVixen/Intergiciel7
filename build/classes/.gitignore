@@ -1,2 +1,6 @@
 /parseur/
 /servlets/
+/META-INF/
+/ejb/
+/entities/
+/forms/
