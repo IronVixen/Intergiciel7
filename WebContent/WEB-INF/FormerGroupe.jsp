@@ -1,13 +1,13 @@
 <%@page import="java.util.Collection"%>
-<%@page import="entities.Projet;"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="entities.Projet"%>
+<%@page import="entities.Etudiant;"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ecran d'accueil</title>
+<meta charset="UTF-8">
+<title>Saisie Etudiant</title>
 </head>
+
 <body>
 
 	<header>
@@ -102,17 +102,21 @@
 	<br />
 	
 	</header>
-
+	
+	
 <%s = ( (String) session.getAttribute("Admin"));%>
-<%String l = ( (String) session.getAttribute("Lie"));%>
-<%String g = ( (String) session.getAttribute("EnGroupe"));%>
-
-<%if( (s==null)?false:s.equals("Non") && (l==null)?true:l.equals("Oui") && (g==null)?true:g.equals("Non") ){%>
-	<form method="get" action="JoinProjet">
-	<%
-	for (Projet proj : (Collection<Projet>)  request.getAttribute("listproj")) {
+<%if( (s==null)?false:s.equals("Oui") ){%>
+	<form method="get" action="FormerGroupe">
+		<%
+	for (Projet p : (Collection<Projet>)  request.getAttribute("listproj")) {
 	%>
-	  <input type='radio' name='idp' value='<%= proj.getId()%>'/><%= proj.getNom()%>
+	  <input type='radio' name='idp' value='<%= p.getId()%>'/><%= p.getNom()%>
+	  <br/>
+	<% } %>
+	<%
+	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
+	%>
+	  <input type='radio' name='ide' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
 	  <br/>
 	<% } %>
 	
@@ -120,5 +124,6 @@
 	<input type="submit" value="OK"/>
 	</form>
 <% } %>	
+
 </body>
 </html>

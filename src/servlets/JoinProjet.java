@@ -70,13 +70,13 @@ private ProjetImpl   projetImpl;
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		String sidg = request.getParameter("idg");
-		int idg = Integer.parseInt(sidg);
+		String sidp = request.getParameter("idp");
+		int idp = Integer.parseInt(sidp);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
 		Etudiant e = u.getEtudiant();
 		if (e!=null) {
-			etudiantImpl.lierEtudiantProjet((long) e.getId(),(long) idg);
+			etudiantImpl.lierEtudiantProjet((long) e.getId(),(long) idp);
 		}
         this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
 	}

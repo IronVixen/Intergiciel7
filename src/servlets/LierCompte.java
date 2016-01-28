@@ -87,11 +87,11 @@ private ProjetImpl   projetImpl;
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		String sidp = request.getParameter("idp");
-		int idp = Integer.parseInt(sidp);
+		String side = request.getParameter("ide");
+		int ide = Integer.parseInt(side);
 		HttpSession session = (HttpSession) request.getAttribute("session");
 		Utilisateur u = (Utilisateur) session.getAttribute("Utilisateur");
-		utilisateurImpl.lierUtilisateur((long) idp, u);
+		utilisateurImpl.lierUtilisateur((long) ide, u);
 		
 	}
 
