@@ -1,6 +1,6 @@
-/META-INF
+/META-INF/
 /Note.txt
-/ejb
-/entities
-/forms
-/servlets
+/ejb/
+/entities/
+/forms/
+/servlets/
