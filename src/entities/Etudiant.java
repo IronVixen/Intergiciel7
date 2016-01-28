@@ -21,13 +21,22 @@ public class Etudiant {
 	private String nom;
 	private String prenom;
 	private String gtd;
-	
+	private String aUnGroupe;
+
 	@ManyToOne(targetEntity=Projet.class)
 	Projet projet;
 	
 	@OneToOne(targetEntity=Utilisateur.class)
 	Utilisateur utilisateur;
 	
+	
+	
+	public String getaUnGroupe() {
+		return aUnGroupe;
+	}
+	public void setaUnGroupe(String aUnGroupe) {
+		this.aUnGroupe = aUnGroupe;
+	}
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
