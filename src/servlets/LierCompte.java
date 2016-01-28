@@ -72,6 +72,9 @@ private ProjetImpl   projetImpl;
         
         if ( form.getErreurs().isEmpty() ) {
         	etudiantImpl.creer(etu);
+        	session.setAttribute("Lie", "Oui");
+        	Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur"); 
+        	utilisateurImpl.trouver(utilisateur.getEmail()).setLie("Oui");
         } else {
         	System.out.println("Paramètre d'inscription incorrect");
         }
