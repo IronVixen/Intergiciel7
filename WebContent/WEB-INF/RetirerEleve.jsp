@@ -103,28 +103,26 @@
 	
 	</header>
 	
-	
 <%s = ( (String) session.getAttribute("Admin"));%>
 <%if( (s==null)?false:s.equals("Oui") ){%>
 	<form method="get" action="FormerGroupe">
 		<%
 	for (Projet p : (Collection<Projet>)  request.getAttribute("listproj")) {
 	%>
-	  <input type='radio' name='idp' value='<%= p.getId()%>'/><%= p.getNom()%>
+	  <%= p.getNom()%>
 	  <br/>
+
+		<%
+		for (Etudiant Etu : (Collection<Etudiant>)  p.getEtudiants()) {
+		%>
+		  <input type='radio' name='ide' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
+		  <br/>
+		<% } %>
 	<% } %>
-	<%
-	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
-	%>
-	  <input type='radio' name='ide' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
-	  <br/>
-	<% } %>
-	
-	<input type="hidden" name="op" value="associer"/>
-	<input type="submit" value="Ajouter"/>
+	<input type="hidden" name="op" value="dissocier"/>
+	<input type="submit" value="Retirer"/>
 	</form>
 <% } %>	
-
 
 </body>
 </html>

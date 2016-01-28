@@ -1,13 +1,14 @@
 <%@page import="java.util.Collection"%>
-<%@page import="entities.Projet"%>
-<%@page import="entities.Etudiant;"%>
-<!DOCTYPE html>
+<%@page import="entities.Etudiant"%>
+<%@page import="entities.Projet;"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Saisie Etudiant</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Liste des Groupes</title>
 </head>
-
 <body>
 
 	<header>
@@ -26,8 +27,9 @@
 			<%
 				} else {
 			%>
-			<form method="get" action="/plateformeGroupe/Deconnexion">
-				<input type="submit" value="Se deconnecter"/>
+			<form method="get" action="/plateformeGroupe/Connexion">
+				<input type="submit" value="Se deconnecter">
+				<input type = "hidden" name="CheckDeco" value="deconnexion">
 			</form>
 			<%
 				}
@@ -74,14 +76,9 @@
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
-	
-	<li><form method="get" action="/plateformeGroupe/Listergrp">
-			<input type="submit" value="Lister Groupe">
-		</form></li>
-	<br />
 
 	<% 
-	if( !(s==null) ){%>
+	if( (s==null)?false:s.equals("Oui") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>
@@ -102,29 +99,33 @@
 	<br />
 	
 	</header>
-	
-	
-<%s = ( (String) session.getAttribute("Admin"));%>
-<%if( (s==null)?false:s.equals("Oui") ){%>
-	<form method="get" action="FormerGroupe">
-		<%
-	for (Projet p : (Collection<Projet>)  request.getAttribute("listproj")) {
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+Liste des groupes :
+<% 
+for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
+%>
+<p>
+	 <input type='radio' name='idp' value='<%= Proj.getId()%>'/><%= Proj.getNom()%>
+	<br>
+	<% 
+	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtudiants()) {
 	%>
-	  <input type='radio' name='idp' value='<%= p.getId()%>'/><%= p.getNom()%>
-	  <br/>
-	<% } %>
+			Nom : <%= Etu.getNom()%>
+			<br>
+			Prénom : <%=Etu.getPrenom()%>
+			<br>
+			Groupe de TD : <%=Etu.getGtd() %>
+			<br>
+			<br>
 	<%
-	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
+	}
 	%>
-	  <input type='radio' name='ide' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
-	  <br/>
-	<% } %>
-	
-	<input type="hidden" name="op" value="associer"/>
-	<input type="submit" value="Ajouter"/>
-	</form>
-<% } %>	
-
-
+</p>
+<%
+}
+%>
 </body>
 </html>
