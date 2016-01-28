@@ -32,7 +32,7 @@ input[type=password] {
     color: white;
 }
 
-input[type=email] {
+input[type=email],[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
