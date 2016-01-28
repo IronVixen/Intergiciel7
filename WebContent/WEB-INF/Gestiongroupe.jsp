@@ -54,19 +54,19 @@
 	</header>
 
 	<li><form method="get" action="/plateformeGroupe/NewProjet">
-			<input type="submit" value="Former un groupe">
+			<input type="submit" value="Créer un groupe">
 		</form></li>
 
-	<li><form method="get" action="/plateformeGroupe/Accueil">
+	<li><form method="get" action="/plateformeGroupe/FormerGroupe">
 			<input type="submit" value="Former les groupes">
 		</form></li>
 	
-	<li><form method="get" action="/plateformeGroupe/Accueil">
-			<input type="submit" value="Retirer des élèves">
+	<li><form method="get" action="/plateformeGroupe/RetirerEleve">
+			<input type="submit" value="Retirer un élève d'un groupe">
 		</form></li>
 
-	<li><form method="get" action="/plateformeGroupe/Accueil">
-			<input type="submit" value="Retirer des élèves">
+	<li><form method="get" action="/plateformeGroupe/SupprimerGroupe">
+			<input type="submit" value="Supprimer un groupe">
 	</form></li>
 </body>
 </html>

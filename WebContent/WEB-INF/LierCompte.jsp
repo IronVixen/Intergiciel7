@@ -108,7 +108,7 @@
 	<%
 	for (Etudiant Etu : (Collection<Etudiant>)  request.getAttribute("listetu")) {
 	%>
-	  <input type='radio' name='idp' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
+	  <input type='radio' name='ide' value='<%= Etu.getId()%>'/><%= Etu.getNom()%> <%= Etu.getPrenom()%>
 	  <br/>
 	<% } %>
 	
