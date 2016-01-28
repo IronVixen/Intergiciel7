@@ -24,6 +24,9 @@ public class Utilisateur {
     private String admin;
     @Column ( name = "lie")
     private String lie;
+    
+    
+    
     public String getLie() {
 		return lie;
 	}

@@ -62,8 +62,7 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Récupération du paramètre permettant d'indiquer d'où on vient
-		//String op = request.getParameter("op");
+
 		doGet(request, response);
 
 	}

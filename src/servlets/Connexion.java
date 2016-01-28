@@ -65,17 +65,8 @@ public class Connexion extends HttpServlet {
         HttpSession session = request.getSession();
         
         
-		String op = request.getParameter("op");
 		//Redirection{
-		System.out.println(op);
-		if(op!= null && op.equals("deco")){	
-				System.out.println("Tu as essayé de te déco. Bien tenté.");
-				session.setAttribute("Admin","Deco");
-				session.setAttribute(ATT_SESSION_USER,null);
-				request.removeAttribute(ATT_USER);
-				request.getRequestDispatcher( "/Accueil" ).forward( request, response );	
-	        }
-		else {
+
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur Ã  la session, sinon suppression du bean de la session.
@@ -84,7 +75,7 @@ public class Connexion extends HttpServlet {
         	System.out.println("La connexion est un succès");
             session.setAttribute( ATT_SESSION_USER, utilisateur );
             session.setAttribute("Admin", utilisateur.getAdmin());
-            System.out.println(utilisateur.getAdmin());
+            session.setAttribute("Lie", utilisateur.getLie());
             this.getServletContext().getRequestDispatcher("/WEB-INF/Accueil.jsp").forward( request, response );
         } else {
             session.setAttribute( ATT_SESSION_USER, null );
@@ -99,4 +90,3 @@ public class Connexion extends HttpServlet {
         
 		}
     }
-}

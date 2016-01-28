@@ -24,9 +24,8 @@
 			<%
 				} else {
 			%>
-			<form method="get" action="/plateformeGroupe/Connexion">
+			<form method="get" action="/plateformeGroupe/Deconnexion">
 				<input type="submit" value="Se deconnecter"/>
-				<input type="hidden" name="op" value="deco"/>
 			</form>
 			<%
 				}
