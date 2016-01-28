@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Liste des Groupes</title>
 <link type="text/css" rel="stylesheet" href="accueil.css" />
+<title>Liste des Groupes</title>
 </head>
 <body>
 
@@ -28,9 +28,8 @@
 			<%
 				} else {
 			%>
-			<form method="get" action="/plateformeGroupe/Connexion">
-				<input type="submit" value="Se deconnecter">
-				<input type = "hidden" name="CheckDeco" value="deconnexion">
+			<form method="get" action="/plateformeGroupe/Deconnexion">
+				<input type="submit" value="Se deconnecter"/>
 			</form>
 			<%
 				}
@@ -49,8 +48,8 @@
 
 	<%s = ( (String) session.getAttribute("Admin"));%>
 	<%if( (s==null)?false:s.equals("Oui") ){%>
-	<li><form method="get" action="/plateformeGroupe/GestProjet">
-			<input type="submit" value="Projet">
+	<li><form method="get" action="/plateformeGroupe/GestionGroupe">
+			<input type="submit" value="Gestion des groupes">
 		</form></li>
 	<br />
 
@@ -77,27 +76,27 @@
 			<input type="submit" value="Lister Etudiant">
 		</form></li>
 	<br />
+	
+	<li><form method="get" action="/plateformeGroupe/Listergrp">
+			<input type="submit" value="Lister Groupe">
+		</form></li>
+	<br />
 
-	<% 
-	if( (s==null)?false:s.equals("Oui") ){%>
+	<% s = ( (String) session.getAttribute("Admin"));
+	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>
 	<br />
 	<% } %> 
 	
-	<% s = ( (String) request.getAttribute("Admin"));
+	<% s = ( (String) session.getAttribute("Admin"));
 	if( (s==null)?false:s.equals("Non") ){%>
-	<li><form method="get" action="/plateformeGroupe/Gestiongroupe">
-			<input type="submit" value="Gestion Groupe">
+	<li><form method="get" action="/plateformeGroupe/JoinProjet">
+			<input type="submit" value="Rejoindre un groupe">
 		</form></li>
 	<br />
 	<% } %> 
-	
-	<li><form method="get" action="/plateformeGroupe/Demandes">
-			<input type="submit" value="Demandes">
-		</form></li>
-	<br />
 	
 	</header>
 
@@ -109,23 +108,18 @@ Liste des groupes :
 for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 %>
 <p>
+	Nom du groupe : <%= Proj.getNom()%>
 	<br>
 	<% 
 	for(Etudiant Etu : (Collection<Etudiant>)  Proj.getEtudiants()) {
 	%>
-	<table>
-  <tr>
-    <th>Nom</th>
-    <th>Prenom</th>
-    <th>Groupe de TD</th>
-    <th>Nom du Groupe</th>
-  </tr>
-    <tr>
-    <td><%= Etu.getNom()%></td>
-    <td><%=Etu.getPrenom()%></td>
-    <td><%=Etu.getGtd() %></td>
-    <td><%= Proj.getNom()%></td>
-  </tr>
+			Nom : <%= Etu.getNom()%>
+			<br>
+			Prénom : <%=Etu.getPrenom()%>
+			<br>
+			Groupe de TD : <%=Etu.getGtd() %>
+			<br>
+			<br>
 	<%
 	}
 	%>
@@ -133,6 +127,5 @@ for(Projet Proj : (Collection<Projet>)  request.getAttribute("listproj")) {
 <%
 }
 %>
-
 </body>
 </html>

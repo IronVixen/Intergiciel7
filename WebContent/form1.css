@@ -24,23 +24,23 @@ li a:hover:not(.active) {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #5a357a;
 }
 
 body, p, legend, label, input {
     font-family:"palatino linotype", palatino, serif;
-    background-color:#455A64;
+    background-color:#5cb962;
 }
 
 fieldset {
     padding: 10px;
-    border: 1px #4CAF50 solid;
+    border: 1px #5a357a solid;
     color:white;
 }
 
 legend {
     font-weight: bold;
-    color: #4CAF50;
+    color: #5a357a;
 }
 
 /* Forms --------------------------------------------------------------------------------------- */
@@ -55,7 +55,7 @@ input[type=password] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #4CAF50;
+    background-color: #5a357a;
     color: white;
 }
 
@@ -65,6 +65,6 @@ input[type=email] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #4CAF50;
+    background-color: #5a357a;
     color: white;
 }
