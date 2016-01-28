@@ -34,6 +34,10 @@ public class GestionGroupe extends HttpServlet{
 	private EtudiantImpl   etudiantImpl;
 	@EJB
 	private ProjetImpl   projetImpl;
+	
+	public GestionGroupe() {
+		super();
+	}
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		/* Affichage de la page de connexion */
