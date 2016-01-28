@@ -79,7 +79,7 @@
 	<br />
 
 	<% 
-	if( !(s==null) ){%>
+	if( (s==null)?false:s.equals("Non") ){%>
 	<li><form method="get" action="/plateformeGroupe/Newprojet">
 			<input type="submit" value="Nouveau Projet">
 		</form></li>
