@@ -20,7 +20,7 @@
 	<li><form method="get" action="/plateformeGroupe/Accueil">
 			<input type="submit" value="Accueil">
 		</form></li>
-	<br />
+
         <form method="post" action="Connexion">
 
             <fieldset>
