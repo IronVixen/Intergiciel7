@@ -41,4 +41,8 @@ public class Projet {
 	public void setEtudiants(Collection<Etudiant> etudiants) {
 		this.etudiants = etudiants;
 	}
+	public void addEtudiant(Etudiant etudiant)
+	{
+		etudiants.add(etudiant);
+	}
 }
